@@ -1,13 +1,13 @@
 const quote = document.getElementById("quote");
 const author = document.getElementById("author");
-const api_url="https://api.gameofthronesquotes.xyz/v1/random";
-
+const api_url="https://api.quotable.io/quotes/random";
 
 async function getquote(url){
     const response=await fetch(url);
     var data=await response.json();
-    quote.innerHTML=data.sentence;
-    author.innerHTML=data.character.name;
+    console.log(data);
+    quote.innerHTML=data[0].content;
+    author.innerHTML=data[0].author;
 }
 
 getquote(api_url);
